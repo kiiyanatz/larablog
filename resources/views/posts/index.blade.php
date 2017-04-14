@@ -34,12 +34,15 @@
               <td>{{ date('M j, Y h:i a', strtotime($post->created_at)) }}</td>
               <td>
                 {!! Html::linkRoute('posts.edit', 'Edit', array($post->id), array('class'=>'btn btn-primary btn-sm')) !!}
-                {!! Html::linkRoute('posts.destroy', 'Delete', array($post->id), array('class'=>'btn btn-danger btn-sm')) !!}
+                {!! Html::linkRoute('posts.show', 'View', array($post->id), array('class'=>'btn btn-success btn-sm')) !!}
               </td>
             </tr>
           @endforeach
         </tbody>
       </table>
+      <div class="text-center">
+        {!! $posts->links(); !!}
+      </div>
     </div>
   </div>
 @endsection
