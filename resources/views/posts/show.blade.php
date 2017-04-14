@@ -31,10 +31,14 @@
         <div class="col-sm-4">
           {!! Html::linkRoute('posts.create', 'New Post', null, array('class'=>'btn btn-primary btn-block')) !!}
         </div>
+         
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="row"><a href="/posts" class="btn btn-primary btn-block">Posts</a></div>
+      <div class="row" id="all-btn">
+          <div class="col-md-12">
+            <a href="/posts" class="btn btn-default btn-block"><< See all posts</a>
+          </div>
+        </div>
+     
     </div>
   </div>
 @endsection
