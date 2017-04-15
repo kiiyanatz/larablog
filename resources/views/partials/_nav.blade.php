@@ -19,18 +19,25 @@
                 <li class="{{ Request::is('contact') ? "active": "" }}"><a href="/contact">Contact</a></li>
             </ul>
 
+            @if(Auth::check())
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="/posts">Posts</a></li>
+                        <li><a href="#">Profile settings</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li>
+                           {{--  <form class="form-horizontal" role="form" method="POST" action="{{ route('logout') }}">
+                                {{ csrf_field() }}
+                                <button type="text" type="submit">logout</button>
+                            </form> --}}
+                            <a href="{{ route('logout') }}">Logout</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
+            @endif
         </div>
         <!-- /.navbar-collapse -->
     </div>

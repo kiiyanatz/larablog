@@ -23,3 +23,11 @@ Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getS
 
 Route::get('blog', ['uses' => 'BlogController@getIndex', 'as' => 'blog.index']);
 
+
+/* Auth routes */
+
+
+
+Auth::routes();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+

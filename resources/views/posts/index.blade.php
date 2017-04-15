@@ -5,6 +5,10 @@
 
 @section('content')
 <div class="container">
+<form class="form-horizontal" role="form" method="POST" action="{{ route('logout') }}">
+{{ csrf_field() }}
+<button type="text" type="submit">logout</button>
+</form>
     <div class="row">
     <div class="col-md-10">
       <h1>All posts</h1>
