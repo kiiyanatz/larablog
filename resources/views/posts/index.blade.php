@@ -4,7 +4,8 @@
 @endsection
 
 @section('content')
-  <div class="row">
+<div class="container">
+    <div class="row">
     <div class="col-md-10">
       <h1>All posts</h1>
     </div>
@@ -45,4 +46,5 @@
       </div>
     </div>
   </div>
+</div>
 @endsection

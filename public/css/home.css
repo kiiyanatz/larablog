@@ -1,0 +1,57 @@
+.navbar-default {
+	border-radius: 0px;
+	border: none;
+	background: rgba(0,0,0,1);
+	margin: 0px;
+	height: 100px;
+	padding: 20px;
+	width: 100%;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #fff;
+	font-size: 20px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+	color: #337AB7;
+	font-size: 20px;
+}
+
+#intro {
+	background: url(/imgs/nasa.jpg) no-repeat rgba(0, 0, 0, .9);
+	background-size: cover;
+	height: 100vh;
+}
+
+.jumbotron {
+	margin-top: 200px;
+	text-align: center;
+	background: rgba(1,1,1,.1);
+	color: #fff;
+}
+
+#blogs {
+/*	background: url(/imgs/cogs.jpg) no-repeat;
+	background-size: cover;*/
+	background: linear-gradient(0deg, rgba(1,1,1,1), rgba(0,0,0,0));
+	height: 100vh;
+}
+
+.btn{
+	border-radius: 0px;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+.navbar-brand {
+	display: none;
+}
+
+.active {
+	background: red;
+}
+
+#latest-blog {
+	background: #fff;
+}

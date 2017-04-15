@@ -2,12 +2,16 @@
 @section('title')
 | Contact
 @endsection
+@section('stylesheets')
+<link rel="stylesheet" href="/css/home.css">
+@endsection
 @section('content')
-  <div class="row">
+<div id="intro">
+  <div class="container">
+    <div class="row">
       <div class="col-md-12">
           <div class="jumbotron">
               <h1>Get intouch with LaraBlog</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo vitae placeat provident, reiciendis, voluptate quaerat facilis est voluptatem inventore voluptatibus amet velit et perferendis cupiditate quo, laboriosam iste suscipit sint.</p>
               <form action="">
                   <div class="form-group">
                       <label for="email">Email:</label>
@@ -21,9 +25,11 @@
                       <label for="message">Message:</label>
                       <textarea name="message" id="" cols="30" rows="10" class="form-control" placeholder="Type your massage here..."></textarea>
                   </div>
-                  <input type="submit" class="btn btn-success" value="Send Message">
+                  <input type="submit" class="btn btn-primary" value="Send Message">
               </form>
           </div>
       </div>
   </div>
+</div>
+</div>
 @endsection
