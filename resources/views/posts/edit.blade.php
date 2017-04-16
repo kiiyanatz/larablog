@@ -10,13 +10,13 @@
     <div class="col-md-8">
     
         {{ Form::label('title', 'Title')}}
-        {{ Form::text('title', null, ["class" => 'form-control input-lg'])}}
+        {{ Form::text('title', null, ["class" => 'form-control input-lg', 'id' => 'post-title'])}}
 
         {{ Form::label('slug', 'Slug')}}
         {{ Form::text('slug', null, ["class" => 'form-control input-lg'])}}
 
         {{ Form::label('body', 'Body', ["class" => 'form-spacing-top'])}}
-        {{ Form::textarea('body', null, ["class" => 'form-control', 'style'=>'margin-top:10px'])}}
+        {{ Form::textarea('body', null, ["class" => 'form-control', 'style'=>'margin-top:10px', 'id' => 'editor'])}}
 
     </div>
     <div class="col-md-4 well">
@@ -41,4 +41,26 @@
   </div>
   {!! Form::close() !!}
 </div>
+@endsection
+@section('scripts')
+  <script>
+    tinymce.init({
+      selector:'textarea',
+      height: 500,
+      plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen",
+        "insertdatetime media table contextmenu paste imagetools"
+      ],
+      toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | codesample",
+      imagetools_cors_hosts: [
+        'www.tinymce.com',
+        'codepen.io'
+      ],
+      content_css: [
+        '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+        '//www.tinymce.com/css/codepen.min.css'
+      ]
+    });
+  </script>
 @endsection
