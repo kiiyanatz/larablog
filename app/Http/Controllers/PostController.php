@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use Session;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -32,7 +33,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $categories = Category::all();
+        return view('posts.create')->with('categories', $categories);
     }
 
     /**
@@ -54,6 +56,7 @@ class PostController extends Controller
         $post = new Post;
         $post->title = $request->title;
         $post->slug = $request->slug;
+        $post->category_id = $request->category;
         $post->body = $request->body;
         $post->save();
 
@@ -85,7 +88,12 @@ class PostController extends Controller
     {
         // Find the post to be edited
         $post = Post::find($id);
-        return view('posts.edit')->with('post', $post);
+        $categories = Category::all();
+        $data = [
+            'post' => $post,
+            'categories' => $categories
+        ];
+        return view('posts.edit', $data);
     }
 
     /**
@@ -115,6 +123,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
+        $post->category_id = $request->input('category');
         $post->body = $request->input('body');
         // Push to db
 

@@ -25,13 +25,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi {{ Auth::user()->name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/posts">Posts</a></li>
+                        <li><a href="{{ route('categories.index')}}">Categories</a></li>
                         <li><a href="#">Profile settings</a></li>
                         <li role="separator" class="divider"></li>
                         <li>
-                           {{--  <form class="form-horizontal" role="form" method="POST" action="{{ route('logout') }}">
-                                {{ csrf_field() }}
-                                <button type="text" type="submit">logout</button>
-                            </form> --}}
                             <a href="{{ route('logout') }}">Logout</a>
                         </li>
                     </ul>

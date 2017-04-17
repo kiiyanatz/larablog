@@ -15,6 +15,13 @@
         {{ Form::label('slug', 'Slug')}}
         {{ Form::text('slug', null, ["class" => 'form-control input-lg'])}}
 
+        {{ Form::label('category', 'Category')}}
+        <select name="category" id="" class="form-control">
+          @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+          @endforeach
+        </select>
+
         {{ Form::label('body', 'Body', ["class" => 'form-spacing-top'])}}
         {{ Form::textarea('body', null, ["class" => 'form-control', 'style'=>'margin-top:10px', 'id' => 'editor'])}}
 
@@ -27,6 +34,10 @@
       <dl class="dl-horizontal">
         <dt>Last Updated:</dt>
         <dd>{{ date('M j, Y h:i a', strtotime($post->updated_at)) }}</dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Category:</dt>
+        <dd>{{ $post->category->name }}</dd>
       </dl>
       <hr>
       <div class="row">
@@ -42,6 +53,7 @@
   {!! Form::close() !!}
 </div>
 @endsection
+
 @section('scripts')
   <script>
     tinymce.init({

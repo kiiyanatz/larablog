@@ -23,6 +23,10 @@
           <label>Last Updated:</label>
           <p>{{ date('M j, Y h:i a', strtotime($post->updated_at)) }}</p>
         </dl>
+        <dl class="dl-horizontal">
+          <label>Category:</label>
+          <p>{{ $post->category->name }}</p>
+        </dl>
         <hr>
         <div class="row">
           <div class="col-sm-4">
