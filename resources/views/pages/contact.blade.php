@@ -12,7 +12,8 @@
       <div class="col-md-12">
           <div class="jumbotron">
               <h1>Get intouch with LaraBlog</h1>
-              <form action="">
+              <form method="post" action="{{ url('contact') }}">
+                  {{ csrf_field() }}
                   <div class="form-group">
                       <label for="email">Email:</label>
                       <input type="text" name="email" class="form-control">
