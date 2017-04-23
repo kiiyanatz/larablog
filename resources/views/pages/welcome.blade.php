@@ -4,6 +4,11 @@
 @endsection
 @section('stylesheets')
 <link rel="stylesheet" href="/css/home.css">
+    <style>
+        img {
+            display: none;
+        }
+    </style>
 @endsection
 
 @section('content')

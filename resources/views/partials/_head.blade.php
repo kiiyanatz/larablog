@@ -17,5 +17,12 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <link rel="stylesheet" href="/css/styles.css">
-
+<style>
+	.alert {
+		position: absolute;
+		top: 0;
+		width: 40%;
+		margin: 0 auto;
+	}
+</style>
 @yield('stylesheets')

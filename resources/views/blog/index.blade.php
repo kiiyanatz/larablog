@@ -2,7 +2,13 @@
 @section('title')
 | All Posts
 @endsection
-
+@section('stylesheets')
+    <style>
+        img {
+            display: none;
+        }
+    </style>
+@stop
 @section('content')
 <div class="container">
     <div class="row">

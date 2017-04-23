@@ -10,6 +10,10 @@
 			<h1>{!! $post->title !!}</h1>
 			<p>{!! $post->body !!}</p>		
 		</div>
+		        <h5>Tags</h5>
+        @foreach($post->tags as $tag)
+          <span class="label label-default">{{ $tag->name }}</span>
+        @endforeach
 		<div class="col-md-2">
 			<h4>Category: {{ $post->category->name }}</h4>
 		</div>
