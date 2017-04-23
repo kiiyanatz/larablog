@@ -51,17 +51,40 @@ class CommentsController extends Controller
 
     public function edit($id)
     {
-        //
+        $comment = Comment::find($id);
+        return view('comments.edit')->with('comment', $comment);
     }
 
     public function update(Request $request, $id)
     {
-        //
+      $comment = Comment::find($id);
+      $this->validate($request, array('comment' => 'required'));
+
+      $comment->comment = $request->comment;
+
+      $comment->save();
+
+      Session::flash('success', 'Comment updated!');
+
+      return redirect()->route('posts.show', [$comment->post->id]);
+    }
+
+    public function delete($id)
+    {
+      $comment = Comment::find($id);
+      return view('comments.delete')->with('comment', $comment);
     }
 
 
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+        $post_id = $comment->post->id;
+
+        $comment->delete();
+
+        Session::flash('success', 'Comment deleted!');
+
+        return redirect()->route('posts.show', $post_id);
     }
 }

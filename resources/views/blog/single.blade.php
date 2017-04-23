@@ -35,11 +35,19 @@
 	</div>
 	<div class="row">
 	  <div class="col-md-8 col-md-offset-2">
-			<h3>Comments:</h3>
+			<h3 class="comments-title"> <span class="glyphicon glyphicon-comment"></span> {{ $post->comments()->count() }} Comments:</h3>
 			@foreach($post->comments as $comment)
 				<div class="comment">
-					<a href="#">{{ $comment->name }}</a>
-					<p class="well">{{ $comment->comment }}</p>
+					<div class="author-info">
+						<img src="{{ "https://www.gravatar.com/avatar/" . md5(strtolower(trim($comment->email))) . "?s=50&d=wavatar" }}" alt="" class="author-image">
+						<div class="author-name">
+							<h4>{{ $comment->name }}</h4>
+							<p class="time">{{ date('F nS, Y - g:i', strtotime($comment->created_at)) }}</p>
+						</div>
+					</div>
+					<div class="comment-content">
+						{{ $comment->comment }}
+					</div>
 				</div>
 			@endforeach
 
