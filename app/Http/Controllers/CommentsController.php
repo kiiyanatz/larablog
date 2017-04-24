@@ -9,14 +9,9 @@ use Session;
 
 class CommentsController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-        //
-    }
-
-    public function create()
-    {
-        //
+      $this->middleware('auth', ['except' => 'store']);
     }
 
     public function store(Request $request, $post_id)
@@ -44,10 +39,6 @@ class CommentsController extends Controller
         return redirect()->route('blog.single', [$post->slug]);
     }
 
-    public function show($id)
-    {
-        //
-    }
 
     public function edit($id)
     {

@@ -6,7 +6,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <h1>{!! $post->title !!}</h1>
+        <img src="{{ asset('imgs/uploads/' . $post->image) }}" alt="" width="100%">
+        <h1>{{ $post->title }}</h1>
         <p>{!! $post->body !!}</p>
         <hr>
         <div class="tags">

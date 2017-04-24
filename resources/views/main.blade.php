@@ -9,11 +9,11 @@
 
     @include('partials._messages')
     @yield('content')
-    
+
     @include('partials._footer')
 
     @include('partials._scripts')
-    @yield('scripts')
+    
 </body>
 
 </html>

@@ -2,7 +2,8 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<h1>{!! $post->title !!}</h1>
+			<img src="{!! asset('imgs/uploads/' . $post->image) !!}" alt="">
+			<h1>{{ $post->title }}</h1>
 			<p>{!! $post->body !!}</p>
 			<h2>Please comment below:</h2>
 		</div>

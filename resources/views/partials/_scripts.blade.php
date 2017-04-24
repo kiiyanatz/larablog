@@ -8,3 +8,4 @@
 		$('.alert').fadeOut().empty();
 	}, 4000);
 </script>
+@yield('scripts')

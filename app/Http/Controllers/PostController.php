@@ -7,6 +7,7 @@ use App\Post;
 use App\Tag;
 use Session;
 use App\Category;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PostController extends Controller
 {
@@ -36,7 +37,8 @@ class PostController extends Controller
         $this->validate($request, array(
           'title' => 'required|max:255',
           'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
-          'body' => 'required'
+          'body' => 'required',
+          'featured_image' => 'sometimes|image'
         ));
 
         // Store data in db
@@ -45,6 +47,18 @@ class PostController extends Controller
         $post->slug = $request->slug;
         $post->category_id = $request->category;
         $post->body = $request->body;
+
+        // Save image
+        if($request->hasFile('featured_image'))
+        {
+          $image = $request->file('featured_image');
+          $filename = time() . '.' . $image->getClientOriginalExtension();
+          $location = public_path('imgs/uploads/' . $filename);
+          Image::make($image)->resize(800, 400)->save($location);
+
+          $post->image = $filename;
+        }
+
         $post->save();
 
         $post->tags()->sync($request->tags, false);
