@@ -4,11 +4,6 @@
 @endsection
 @section('stylesheets')
 <link rel="stylesheet" href="/css/home.css">
-    <style>
-        img {
-            display: none;
-        }
-    </style>
 @endsection
 
 @section('content')
@@ -25,12 +20,13 @@
 </section>
 
 <section id="blogs">
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <h2 class="text-center">Top latest blog posts</h2>
         @foreach($posts as $post)
-        <div id="latest-blog" class="col-md-5 col-md-offset-1" style="box-shadow: 1px 1px 5px #000; height: 300px; margin-top: 10px;">
+        <div id="latest-blog" class="col-md-3">
             <div class="post">
+                <img src="{!! asset('imgs/uploads/' . $post->image) !!}" alt="">
                 <h3>{!! $post->title !!}</h3>
                 <p>{!! substr(strip_tags($post->body), 0, 300) !!} {!! strlen(strip_tags($post->body)) > 300 ? "..." : ""!!}</p>
                 <a href="blog/{{ $post->slug }}" class="btn btn-primary">Read more</a>

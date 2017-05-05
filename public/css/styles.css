@@ -50,3 +50,19 @@
 .comments-title span {
   margin-right: 15px;
 }
+
+#latest-blog {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post {
+  flex: 1;
+  background: #fff;
+  padding: 10px;
+  height: 400px;
+}
+
+.post img {
+  width: 100%;
+}

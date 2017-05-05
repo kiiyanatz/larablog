@@ -34,7 +34,6 @@
 #blogs {
 /*	background: url(/imgs/cogs.jpg) no-repeat;
 	background-size: cover;*/
-	background: #D5D1D0;
 	height: 100vh;
 }
 
@@ -44,14 +43,7 @@
 	text-transform: uppercase;
 }
 
-.navbar-brand {
-	display: none;
-}
-
 .active {
-	background: red;
-}
-
-#latest-blog {
-	background: #fff;
+	background: #000;
+	border-bottom: 5px solid red;
 }
