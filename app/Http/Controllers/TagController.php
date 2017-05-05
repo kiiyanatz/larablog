@@ -20,7 +20,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
+        $tags = Tag::Paginate(10);
         return view('tags.index')->with('tags', $tags);
     }
 
@@ -79,9 +79,9 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $tag = Tag::find($id);
-        
+
         $tag->posts()->detach();
         $tag->delete();
 

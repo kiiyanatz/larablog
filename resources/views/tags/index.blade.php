@@ -23,6 +23,7 @@
 					@endforeach
 				</tbody>
 			</table>
+			{{ $tags->links() }}
 		</div>
 		<div class="col-md-3">
 			<div class="well">
