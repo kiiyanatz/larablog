@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<img src="{!! asset('imgs/uploads/' . $post->image) !!}" alt="">
+			<img src="{!! asset('imgs/uploads/' . $post->image) !!}" alt="" width="100%">
 			<h1>{{ $post->title }}</h1>
 			<p>{!! $post->body !!}</p>
 			<h2>Please comment below:</h2>
@@ -51,7 +51,6 @@
 					</div>
 				</div>
 			@endforeach
-
 	  </div>
 	</div>
 	<div class="row">
