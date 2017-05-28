@@ -35,7 +35,7 @@
             <tr>
               <th>{{ $post->id }}</th>
               <td>{{ $post->title }}</td>
-              <td>{{ substr($post->body, 0, 50) }} {{ strlen($post->body) > 50 ? "..." : "" }}</td>
+              <td>{{ strip_tags(substr($post->body, 0, 50)) }} {{ strlen($post->body) > 50 ? "..." : "" }}</td>
               <td>{{ date('M j, Y h:i a', strtotime($post->created_at)) }}</td>
               <td>
                 {!! Html::linkRoute('posts.edit', 'Edit', array($post->id), array('class'=>'btn btn-primary btn-sm')) !!}
