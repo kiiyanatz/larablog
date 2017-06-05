@@ -9,7 +9,7 @@ use Session;
 use App\Category;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class PostController extends Controller
+class PostsController extends Controller
 {
 
     public function index()

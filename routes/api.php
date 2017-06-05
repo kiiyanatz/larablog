@@ -19,8 +19,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->get('posts', function() {
-	$posts = Post::all();
+Route::get('posts', function() {
+	$comments = [];
+	$tags = [];
+	$posts = [];
+	$category = '';
+	$posts = Post::orderBy('id', 'desc')->get();
+	foreach($posts as $post) {
+		$post->body = strip_tags($post->body);
+		$tags = $post->tags;
+		$comments = $post->comments;
+		$category = $post->category->name;
+	}
+	//$posts['comments'] = $comments;
+	//$posts['tags'] = $tags;
+	//$posts['category'] = $category;
 	return response()->json($posts);
 });
 
