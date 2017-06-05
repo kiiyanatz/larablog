@@ -47,3 +47,27 @@
 	background: #000;
 	border-bottom: 5px solid red;
 }
+
+.post {
+	border: 1px solid #ddd;
+	position: relative;
+	margin-top: 10px;
+}
+
+.post-title {
+	color: black;
+	margin-bottom: 5px;
+	font-size: 20px;
+}
+.post-desc {
+	margin-top: 10px;
+	color: #aaa;
+}
+
+.more {
+	position: absolute;
+	bottom: 5px;
+	text-transform: uppercase;
+	color: black;
+	text-decoration: underline;
+}
