@@ -4,6 +4,37 @@
 @endsection
 @section('stylesheets')
 <link rel="stylesheet" href="/css/home.css">
+    <style>
+      #left {
+        position: relative;
+        font-size: 20px;
+      }
+
+      .post-title {
+        color: black;
+        font-family: monospace;
+      }
+
+      .post-detail {
+        font-size: 10px;
+        color: #ccc;
+      }
+
+      .post-brief {
+        color: #aaa;
+        font-size: 15px;
+        font-family: monospace;
+      }
+
+      #more {
+        color: black;
+        text-transform: uppercase;
+        font-size: .65em;
+        font-weight: 700;
+        text-decoration: underline;
+      }
+
+    </style>
 @endsection
 
 @section('content')
@@ -20,19 +51,28 @@
 </section>
 
 <section id="blogs">
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <h2 class="text-center">Top latest blog posts</h2>
         @foreach($posts as $post)
-        <div id="latest-blog" class="col-md-3">
-            <div class="post">
-                <img src="{!! asset('imgs/uploads/' . $post->image) !!}" alt="">
-                <h3>{!! $post->title !!}</h3>
-                <p>{!! substr(strip_tags($post->body), 0, 300) !!} {!! strlen(strip_tags($post->body)) > 300 ? "..." : ""!!}</p>
-                <a href="blog/{{ $post->slug }}" class="btn btn-primary">Read more</a>
+      <hr>
+        <div class="row" id="post-this">
+          <div class="col-md-8 col-md-offset-2">
+              <div class="col-md-5" id="right">
+            <img src="{!! asset('imgs/uploads/' . $post->image) !!}" alt="" width="100%">
+          </div>
+            <div class="col-md-7" id="left">
+                <h2 class="post-title">{!! $post->title !!}</h2>
+                <h5 class="post-detail"><b>Published: {{ date('M j, Y h:i a', strtotime($post->created_at)) }}</b></h5>
+                <p class="post-brief">
+                    {!! strip_tags(substr($post->body, 0, 250)) !!}
+                {!! strip_tags(strlen($post->body)) > 250 ? '...' : '' !!}
+                </p>
+                <a href="blog/{{ $post->slug }}" id="more">Read More</a>
             </div>
+          </div>
         </div>
-        @endforeach
+    @endforeach
     </div>
 </div>
 </section>
